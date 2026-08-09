@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cclvc的读书笔记</title>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzFhMTUxMiIvPjxwb2x5Z29uIHBvaW50cz0iMjAsMjAgODAsMTggODIsODIgMTgsODAiIGZpbGw9IiMyZDRhM2EiLz48dGV4dCB4PSI1MCIgeT0iNjgiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjUyIiBmb250LXN0eWxlPSJpdGFsaWMiIGZvbnQtd2VpZ2h0PSI3MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNhODg2MmMiPkM8L3RleHQ+PC9zdmc+">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#1c1917;--ink2:#292524;--ink3:#44403c;
+  --moss:#355342;--moss2:#4a7c5f;--moss-l:#f0f5f2;
+  --brass:#a8862c;--brass2:#c4a346;--brass-l:#faf6ea;
+  --line:#e7e2da;--line2:#f2efe9;--paper:#faf8f5;
+  --tx:#1c1917;--tx2:#57534e;--tx3:#a8a29e;
+  --serif:"Source Han Serif SC","Noto Serif SC",Georgia,"Songti SC",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+}
+html,body{height:100%;font-family:var(--sans);background:var(--paper);color:var(--tx);line-height:1.7;-webkit-font-smoothing:antialiased;font-size:15px;font-weight:400}
+/* 极淡宣纸颗粒 */
+body{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0MDAnIGhlaWdodD0nNDAwJz48ZmlsdGVyIGlkPSdnJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC45JyBudW1PY3RhdmVzPSczJyBzdGl0Y2hUaWxlcz0nc3RpdGNoJy8+PGZlQ29sb3JNYXRyaXggdmFsdWVzPScwIDAgMCAwIDAuMTIgMCAwIDAgMCAwLjEgMCAwIDAgMCAwLjA4IDAgMCAwIDAuMDM1IDAnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nNDAwJyBoZWlnaHQ9JzQwMCcgZmlsdGVyPSd1cmwoI2cpJy8+PC9zdmc+");background-size:280px}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#d6d0c7}
+
+/* ====== TOP NAV — 极简 ====== */
+.topnav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:0 56px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-mark{width:28px;height:28px;background:var(--ink);display:flex;align-items:center;justify-content:center;position:relative}
+.logo-mark::after{content:"";position:absolute;inset:3px;border:1px solid var(--brass2);opacity:.6}
+.logo-mark span{color:var(--brass2);font-weight:400;font-size:14px;font-family:var(--serif);font-style:italic;line-height:1}
+.logo-text{font-size:15px;font-weight:400;color:var(--tx);letter-spacing:3px;font-family:var(--serif);text-transform:uppercase;font-size:12px}
+.logo-text em{color:var(--brass);font-style:normal;font-weight:600;letter-spacing:0;margin:0 6px;font-size:14px;font-family:var(--serif);text-transform:none}
+.nav-links{display:flex;gap:4px}
+.nav-link{padding:8px 18px;font-size:13px;color:var(--tx3);cursor:pointer;transition:color .2s;border:none;background:transparent;font-family:var(--sans);letter-spacing:.5px;font-weight:400;position:relative}.nav-back{padding:8px 10px;font-size:16px;color:var(--moss);cursor:pointer;border:none;background:transparent;opacity:.55;transition:opacity .2s,transform .2s;font-family:var(--sans)}.nav-back:hover{opacity:1;transform:translateX(-2px)}.nav-back.on{opacity:.9}
+.nav-link:hover{color:var(--tx)}
+.nav-link.on{color:var(--ink);font-weight:500}
+.nav-link.on::after{content:"";position:absolute;bottom:0;left:18px;right:18px;height:1px;background:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--tx3);letter-spacing:.5px;font-family:var(--serif);font-style:italic}
+
+/* ====== HERO — 大字留白 ====== */
+.hero{background:var(--paper);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.banner-wrap{max-width:1180px;margin:0 auto;padding:72px 56px 80px;position:relative;min-height:280px;display:flex;align-items:center}
+.banner-track{display:flex;transition:opacity .5s}
+.slide{min-width:100%;display:grid;grid-template-columns:1fr 180px;gap:60px;align-items:center}
+.slide-text{min-width:0}
+.slide-crumb{font-size:11px;letter-spacing:4px;color:var(--brass);font-weight:500;margin-bottom:20px;text-transform:uppercase;font-family:var(--serif)}
+.slide-title{font-size:clamp(28px,4vw,42px);font-weight:400;line-height:1.3;margin-bottom:20px;font-family:var(--serif);color:var(--ink);letter-spacing:-.5px}
+.slide-title span{color:var(--brass);font-style:italic}
+.slide-desc{font-size:14px;color:var(--tx2);line-height:1.9;max-width:440px;font-weight:300}
+.slide-book{width:180px;justify-self:end}
+.book-3d{width:140px;aspect-ratio:3/4.4;position:relative;box-shadow:8px 16px 40px rgba(28,25,23,.15),2px 4px 10px rgba(28,25,23,.08);margin-left:auto}
+.book-3d::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:rgba(0,0,0,.15);z-index:2}
+.book-f{position:absolute;inset:0;padding:28px 18px 24px 22px;display:flex;flex-direction:column;justify-content:space-between}
+.book-f .bt{font-size:15px;font-weight:400;line-height:1.4;color:#f5f0e8;font-family:var(--serif);letter-spacing:.5px}
+.book-f .ba{font-size:10px;color:rgba(245,240,232,.5);letter-spacing:2px;text-transform:uppercase;font-family:var(--serif);font-style:italic;margin-top:auto}
+.book-f .bdl{width:30px;height:1px;background:var(--brass2);opacity:.5;margin-top:14px}
+.banner-dots{position:absolute;bottom:32px;left:56px;display:flex;gap:8px;align-items:center}
+.bdt{width:20px;height:1px;background:var(--line);cursor:pointer;transition:all .3s;border:none;padding:0}
+.bdt.on{width:36px;background:var(--ink)}
+
+/* ====== MAIN ====== */
+.main{max-width:1180px;margin:0 auto;padding:56px 56px 100px}
+.sec-h{font-size:11px;font-weight:500;margin-bottom:28px;display:flex;align-items:center;gap:14px;color:var(--tx3);letter-spacing:3px;text-transform:uppercase;font-family:var(--sans)}
+.sec-h::before{content:"";flex:0 0 32px;height:1px;background:var(--line)}
+.sec-h::after{content:"";flex:1;height:1px;background:var(--line)}
+.sec-h .more{font-size:11px;letter-spacing:2px;color:var(--tx3);cursor:pointer;font-family:var(--serif);font-style:italic;text-transform:none;transition:color .2s}
+.sec-h .more:hover{color:var(--moss2)}
+
+/* STATS — 极简数字 */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:64px}
+.st-i{padding:28px 32px;background:var(--paper);transition:background .2s}
+.st-i:hover{background:var(--brass-l)}
+.st-n{font-size:36px;font-weight:400;font-family:var(--serif);color:var(--ink);line-height:1;margin-bottom:8px;letter-spacing:-1px}
+.st-l{font-size:10px;color:var(--tx3);letter-spacing:3px;text-transform:uppercase;font-family:var(--sans)}
+
+/* BOOK GRID — 图书馆式书架 */
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));column-gap:40px;row-gap:44px;margin-bottom:72px}
+.bcard{cursor:pointer;transition:transform .3s}
+.bcard:hover{transform:translateY(-4px)}
+.bcov{width:100%;aspect-ratio:2/3;position:relative;box-shadow:3px 6px 18px rgba(28,25,23,.12),1px 2px 6px rgba(28,25,23,.06);transition:box-shadow .3s;margin-bottom:16px;overflow:hidden}
+.bcard:hover .bcov{box-shadow:5px 10px 28px rgba(28,25,23,.2),1px 3px 8px rgba(28,25,23,.08)}
+.bcov::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:rgba(0,0,0,.15);z-index:2}
+.bcov-in{position:absolute;inset:0;padding:24px 14px 20px 18px;display:flex;flex-direction:column;justify-content:space-between}
+.bcov-in .btl{font-size:14px;font-weight:400;line-height:1.4;color:#f5f0e8;font-family:var(--serif)}
+.bcov-in .bme{font-size:9px;color:rgba(245,240,232,.45);letter-spacing:2px;text-transform:uppercase;font-style:italic;font-family:var(--serif)}
+.bcov-in .bpg{position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(0,0,0,.2)}
+.bcov-in .bpg .bp{height:100%;background:var(--brass2)}
+.bnm{font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);margin-bottom:3px}
+.bin{font-size:12px;color:var(--tx3);letter-spacing:.3px}
+
+/* CARDS — 内容区块 */
+.cards{margin-bottom:72px;display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.cd{background:var(--paper);padding:28px 32px;transition:background .2s}.cd[data-feed]{cursor:pointer}
+.cd:hover{background:#fffdf8}
+.cd-ch{border-left:2px solid var(--moss);padding-left:30px}
+.cd-mo{border-left:2px solid var(--brass);padding-left:30px}
+.cd-top{display:flex;gap:14px;align-items:center;margin-bottom:10px}
+.cd-ti{font-size:16px;font-weight:500;color:var(--ink);font-family:var(--serif);margin-bottom:8px;line-height:1.5}
+.cd p{font-size:14px;color:var(--tx2);line-height:1.85;margin:0;font-weight:300}
+.tag{display:inline-block;padding:3px 12px;font-size:9px;font-weight:500;letter-spacing:2px;text-transform:uppercase;border:1px solid currentColor;background:transparent}
+.t-m{color:var(--moss);background:transparent}
+.t-b{color:var(--brass);background:transparent}
+.t-g{color:var(--moss2);background:transparent}
+.cd-top>span:not(.tag){font-size:11px;color:var(--tx3);letter-spacing:1px;font-family:var(--serif);font-style:italic}
+
+/* REC GRID */
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;margin-bottom:72px}
+.rcd{background:var(--paper);border:1px solid var(--line);padding:28px;display:flex;gap:20px;position:relative;transition:all .2s}
+.rcd:hover{border-color:var(--brass);background:#fffdf8}
+.rcov{width:52px;height:72px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.85);font-size:18px;font-weight:400;font-family:var(--serif);font-style:italic;box-shadow:2px 4px 12px rgba(28,25,23,.15)}
+.rbd{flex:1;min-width:0}
+.rtp{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:4px}
+.rnm{font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif)}
+.rmat{font-size:10px;color:var(--brass);font-weight:600;letter-spacing:1px;font-family:var(--sans);padding:2px 8px;border:1px solid var(--brass);opacity:.8}
+.rau{font-size:11px;color:var(--tx3);letter-spacing:1px;font-style:italic;font-family:var(--serif);margin-bottom:10px}
+.rrs{font-size:13px;color:var(--tx2);line-height:1.8;font-weight:300}
+
+/* TIMELINE */
+.tl{position:relative;padding-left:40px;margin-bottom:72px}
+.tl::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--line)}
+.ti{position:relative;margin-bottom:32px;padding-left:8px}
+.ti::before{content:"";position:absolute;left:-44px;top:8px;width:9px;height:9px;background:var(--paper);border:1.5px solid var(--moss2)}
+.td{font-size:10px;color:var(--moss2);font-weight:500;letter-spacing:3px;margin-bottom:6px;text-transform:uppercase;font-family:var(--sans)}
+.tt{font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);margin-bottom:4px}
+.tds{font-size:13px;color:var(--tx2);line-height:1.8;font-weight:300}
+
+/* MOOD QUESTION — 衬线大字 */
+.mq{background:var(--ink);padding:64px 48px;text-align:center;color:#e7e2da;margin-bottom:72px;position:relative}
+.mq::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--brass2),transparent);opacity:.4}
+.mq::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--moss2),transparent);opacity:.3}
+.mq .ql{font-size:10px;color:var(--brass);letter-spacing:5px;margin-bottom:24px;text-transform:uppercase;font-weight:500;font-family:var(--sans)}
+.mq .qt{font-size:clamp(16px,2.2vw,22px);font-weight:400;line-height:1.9;max-width:600px;margin:0 auto;font-family:var(--serif);font-style:italic;color:#f5f0e8}
+.mq .qt::before,.mq .qt::after{content:"\2014";color:var(--brass);margin:0 12px;font-style:normal;opacity:.6}
+
+/* RESOURCE CARDS */
+.rgr{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:72px}
+.rcard{background:var(--paper);padding:24px 26px;text-decoration:none;color:inherit;display:block;transition:all .2s;position:relative}
+.rcard:hover{background:#fffdf8}
+.rcard:hover .rnm2{color:var(--brass)}
+.rtp2{font-size:9px;letter-spacing:3px;color:var(--tx3);margin-bottom:10px;text-transform:uppercase;font-family:var(--sans)}
+.rnm2{font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);margin-bottom:6px;transition:color .2s}
+.rds{font-size:12px;color:var(--tx3);line-height:1.6;font-weight:300}
+
+/* NOTE DETAIL */
+.nday{margin-bottom:48px}
+.nday h3{font-size:11px;font-weight:500;color:var(--moss);letter-spacing:3px;text-transform:uppercase;font-family:var(--sans);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--line);display:inline-block}
+.nsec{background:transparent;padding:0 0 28px 0;margin-bottom:0;border-bottom:1px solid var(--line2)}
+.nsec:last-child{border-bottom:none;padding-bottom:0}
+.nsec::before{display:none}
+.ntl{font-size:16px;font-weight:500;margin-bottom:12px;color:var(--ink);font-family:var(--serif)}
+.nbd{font-size:14px;color:var(--tx2);line-height:1.95;font-weight:300}
+
+.tip{background:var(--brass-l);border-left:2px solid var(--brass);padding:14px 22px;margin-bottom:40px;font-size:13px;color:#7a6420;font-weight:300;letter-spacing:.3px}
+
+.page{display:none}.page.on{display:block}
+b{color:var(--ink);font-weight:500}
+code{background:var(--line2);padding:2px 8px;font-size:12px;color:var(--moss);font-family:"SF Mono",Consolas,monospace;font-weight:400;border-radius:1px}
+ul,ol{margin:8px 0 0 0;list-style:none}
+li{font-size:13.5px;color:var(--tx2);margin-bottom:6px;line-height:1.8;font-weight:300;padding-left:18px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:12px;width:6px;height:1px;background:var(--brass);opacity:.5}
+ol{counter-reset:n}
+ol li{counter-increment:n;padding-left:24px}
+ol li::before{content:counter(n,decimal-leading-zero);position:absolute;left:0;top:0;font-size:10px;color:var(--brass);font-family:var(--serif);font-style:italic;width:18px}
+
+@media(max-width:768px){
+  .topnav{padding:0 24px;height:54px}
+  .nav-link{padding:6px 10px;font-size:12px}
+  .banner-wrap{padding:48px 24px 56px}
+  .slide{grid-template-columns:1fr;gap:32px}
+  .slide-book{display:none}
+  .banner-dots{left:24px}
+  .main{padding:40px 24px 64px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .bgrid{grid-template-columns:repeat(3,1fr);column-gap:20px;row-gap:28px}
+  .rgrid{grid-template-columns:1fr}
+  .st-i{padding:20px}
+}
+</style>
+</head>
+<body>
+<div id="pwdlock" style="position:fixed;inset:0;z-index:9999;background:#faf8f5;display:flex;align-items:center;justify-content:center">
+  <div style="text-align:center;padding:40px;max-width:360px">
+    <div style="font-family:Georgia,serif;font-size:38px;font-style:italic;font-weight:700;color:#1c1917;margin-bottom:6px">C<span style="color:#a8862c">.</span></div>
+    <div style="font-size:11px;letter-spacing:4px;color:#8a8178;margin-bottom:32px">CCLVC NOTES · 私人工作台</div>
+    <input id="pwdin" type="password" placeholder="输入访问密码" style="width:100%;padding:12px 16px;border:1px solid #e5e0d8;background:#fff;font-size:14px;color:#1c1917;outline:none;border-radius:2px;margin-bottom:14px;box-sizing:border-box" />
+    <button id="pwdbtn" style="width:100%;padding:12px;background:#1c1917;color:#f5f2ec;border:none;font-size:13px;letter-spacing:2px;cursor:pointer;border-radius:2px">进 入</button>
+    <div id="pwderr" style="color:#8b3a2e;font-size:12px;margin-top:12px;display:none">密码错误，请重试</div>
+  </div>
+</div>
+<nav class="topnav"><div class="logo"><div class="logo-mark"><span>C</span></div><div class="logo-text">CCLVC<em>NOTES</em></div></div><div class="nav-links" id="nav"></div><div class="nav-right"><span class="st-dot"></span>每日 19:00 自动更新</div></nav>
+<div class="hero" id="hero"></div>
+<div class="main" id="main"></div>
+<script>
+const D={books:{"深度关系":{au:"武志红",ty:"心理学",st:"阅读中",pr:85,cov:"linear-gradient(145deg,#2d4a3a,#0f1a15)",gs:"这本书像是照向内心深处的镜子——从拆解全能自恋、圣人情结，到放下权威恐惧、投入真实关系，最后抵达「由衷信任自己的自发性」。它帮我把「想当然」换成「去触碰」，把「做正确的人」换成「先开始」。",en:[{d:"2026.6.19",s:[{t:"全能型退行",c:"最常见的退行是退行到口欲——写作受阻时转身拿水果吃。受挫后幻想自己造成巨大影响即<b>全能型自恋</b>，真正面对时却转为最基础的安全感。"},{t:"意志成本",c:"全能自恋中发起意志的成本成为唯一成本。①现实无助+精神自恋→行动困难②说过的话不说第二遍③自恋被破坏时绝对摧毁"},{t:"警惕圣人思维",c:"<b>你要成圣人吗？彻底失去欲望和自我才是更深重的悲哀。</b>王阳明「天理即人欲」才是真无我——消除对欲望的执着和扭曲。"},{t:"触及事物本身",c:"减少想象，放下预判。决策前多方位了解、可信度加权。"},{t:"关系与焦虑",c:"谁制造焦虑谁承受化解——承受焦虑就是把死能量转化为生能量。"}]},{d:"2026.6.20",s:[{t:"不尝试就不会失败",c:"完美幻觉：稍一努力就该完美回应。不面对就还是完美的。"}]},{d:"2026.6.23",s:[{t:"建立深度关系",c:"放下掌控，不预判，放空才能与事物<b>相遇</b>——你<b>臣服</b>了。"},{t:"真实是钥匙",c:"<b>先动起来，你是人不是神。</b>真实面对自己。"}]},{d:"2026.6.29",s:[{t:"你只是个人",c:"允许局限性，诚实面对自己，保持成长。<b>你是你，我是我，各行其是，不投射不过度想象。</b>"},{t:"可控与不可控",c:"心中只住着自己的人将世界划为两部分：能控制的是善意，不能控制的是敌意。但想象经过长时间恐慌后，自己的行动也会影响对方。<br><br>自我纠正后找可信任的人印证以削弱想象，或勇敢澄清面对、认识真实的别人、了解自己的黑暗面。"}]},{d:"2026.7.1",s:[{t:"投入真实关系",c:"别做只活在头脑想象层面的人，拿看似高明的头脑挑别人毛病，而是<b>勇敢地投入真实的关系世界，哪怕漏洞百出</b>。"}]},{d:"2026.7.11",s:[{t:"禁止性超我",c:"社会、父母、规则、约定俗成形成绝对禁止性超我，容易发展出两种极端：①被框住无法做出其他行为，为不脱离轨迹作出巨大牺牲；②抵制禁止、脱离主流、绝对抗争、不接受任何规则。<br><br>绝对禁止会毁灭创造、毁灭自我，只剩听懂规则的躯壳。"},{t:"创造力来自自由",c:"创造力来自自由，自由可导致活力自然流动。禁止性强调规则，限制在规则里的人容易争论对错——<b>一直想做正确的人结果总在原地不动，事情可以在不对的时候就开始，个人选择本就没有对错。</b>"}]},{d:"2026.7.23",s:[{t:"自发性",c:"一个人对目标的持久性以及执行力，可以培养出对自己无限的信任——即自发性。<br><br>幼儿期健康互动不足会导致很强的自我及禁止性限制。极端矛盾会降低自发性：兴致起来时行动力和冲动极大，真要面对细节时却极度恐惧、不敢动作，随之无行动力。"},{t:"由衷信任自发性",c:"由衷信任自己的自发性是最值得提倡的健康心理。<br><br>认识人的真实性——只是自己一个人，不是全能的神，也没有全能的神能限制自己。这不是为所欲为，而是原始的、带攻击性的生命力经由丰富体验最终人性化。当人深切感知到<b>不再惧怕生命力被杀死，也不再担心生命力对别人构成伤害</b>时，生命力才能自然生发。"}]}]},"原则":{au:"瑞·达利欧",ty:"自我成长",st:"阅读中",pr:45,cov:"linear-gradient(145deg,#3d2e1a,#1a1208)",gs:"理性决策的框架书——决策前全面考虑、多方了解、可信度加权，切忌想当然的独自决定。它提供了一种把情绪和想象放下的思考纪律，与「放下自恋、尊重真实」互为表里。",en:[{d:"2026.5-6月",s:[{t:"阶段性读后感",c:"三篇读后感。核心：决策前全面考虑，可信度加权。与「放下自恋尊重真实」呼应。"}]}]},"亲密关系":{au:"罗兰·米勒",ty:"心理学",st:"阅读中",pr:15,cov:"linear-gradient(145deg,#5a3228,#2a1812)",gs:"从「欺骗者猜疑」看关系的投射机制：人们常常把自己内心的动机投射到对方身上。它提醒我，在亲密关系里，看见并承认自己的投射，比指责对方更重要。",en:[{d:"2025.12.16",s:[{t:"欺骗者猜疑",c:"<b>背叛者不太相信他人。</b>说谎者想当然地以为别人和自己有同样的欺骗动机；或当相信别人有同样缺点时自我感觉会好一点。说谎有损亲密关系，即使只有说谎者自己知道。"}]}]},"与神对话":{au:"尼尔·唐纳德·沃尔什",ty:"心灵成长",st:"阅读中",pr:20,cov:"linear-gradient(145deg,#2a3a4a,#121c24)",gs:"一本关于行动与喜悦顺序的书：不是「为了快乐才去做」，而是「感到快乐所以去做」。它把内在状态放回因果的源头——先成为，再行动；理解了「是什么」和「为什么」，人才能热爱自己正在做的事。",en:[{d:"2026.4.30",s:[{t:"快乐是行动的源头",c:"<b>人们感到快乐，于是去做某件事。</b>不是为了感到快乐而去做——因果不可倒置。有了同情心，于是采取行动；不是为了拥有同情心而去做某些事。"},{t:"没有人做不想做的事",c:"所有人都能热爱任何事，只要他们明白自己在做什么、以及为什么做。<b>理解「是什么」和「为什么」，是接纳一切行动的前提。</b>"}]}]},
+"乌合之众":{au:"古斯塔夫·勒庞",ty:"社会心理学",st:"阅读中",pr:20,cov:"linear-gradient(145deg,#3a3a2a,#1a1a10)",gs:"观察群体如何吞没个体：自觉的个性消失、情感思想转向同一方向，人变成新生命的一部分。它让我警惕站队时「我」的消失，也理解了环境单一性如何塑造性格。",en:[{d:"2026.8.9",s:[{t:"群体心理的首要特征",c:"<b>自觉的个性消失、情感和思想转向同一方向</b>，是即将拥有群体心理的首要特征。互联网上的站队即各群体——例如最经典的男女问题。"},{t:"先共同后具体",c:"研究陌生的心理族系群体之前，先研究同族系的<b>共同特点</b>，再研究不同种类的具体特点——先看共性，再深入差异。"},{t:"环境决定性格",c:"只有环境的单一性才能造成明显性格的单一性。和周周谈到，因环境变化他性格多变，最终稳定下来，依托的是赖以生存的环境越来越单一。"},{t:"群体是新的生命",c:"个人在进入群体时，感情、行动、思想大为不同——类似多个细胞组成一个新生命。爱国主义、女权主义、大男子主义皆然。"}]}]},"其他思考":{au:"Cclvc",ty:"随笔摘录",st:"持续记录",pr:100,cov:"linear-gradient(145deg,#4a4030,#241e14)",gs:"自己与自己的对话：认识限制人生、成为却又尚未、没有值得燃烧的火、警惕「无我」、「因为相信所以看见」。这些碎片拼出我对自我、动机与选择的持续追问。",en:[{d:"2026.3.22",s:[{t:"认识限制人生",c:"我所知道的即为我的现实。固定的经验和思维生产出既定的人生，<b>足够开放的大脑是打破这一规律的唯一方法——要明白自己永远不知道。</b>"},{t:"成为，却又尚未",c:"在生命的每一刻都在成为，却又永远尚未成为那个能成为的人。生命在于运动——思想的运动、身体的运动、心态的运动。"}]},{d:"2026.6.6",s:[{t:"没有值得燃烧的火",c:"身体和大脑都在说：「没有值得燃烧的火了，那我为什么要保持高温？」<b>当外部和内部都不给支撑时，生存欲望降低，几乎是必然的、理性的结果。</b>"}]},{d:"2026.6.19",s:[{t:"警惕「无我」",c:"以「无我」喂养「大我」的傲慢，以及以「无我」掩护「弱我」的怯懦。"}]},{d:"2026.7.10",s:[{t:"问题即选择的累计",c:"所有问题早在答案出现前就存在了。<b>没有问题，只有自己的选择累计后呈现出来的结果。</b>"}]},{d:"2026.8.9",s:[{t:"因为相信，所以看见",c:"<b>「因为相信，所以看见」与「因为看见，所以相信」。</b>如果一个人一开始就认定这件事可以做到，就会把过程中的枯燥、痛苦、失败、波动当作必经阶段。"}]}]}},moods:[{no:1,date:"2026.8.6",src:["深度关系","原则"],th:"破自恋、求真我",in:"思考集中在识别并拆解全能自恋、圣人情结、权威恐惧，从「想当然」走向「见真实」。",tl:[{d:"5月",t:"初遇《原则》",ds:"理性工具入视野。"},{d:"6.19",t:"集中爆破日",ds:"最高密度笔记。"},{d:"6.20",t:"短暂沉淀",ds:"喘息期。"},{d:"6.23",t:"转向关系",ds:"从「我」到「我和世界」。"},{d:"6.29",t:"收束锚定",ds:"「你只是个人」，战斗到接纳。"},{d:"7.1",t:"静默",ds:"笔记停了。"}],kn:["「想当然」vs「真实触碰」","「不行动」机制——自恋导致无法启动","欲望合法性——松绑中","焦虑承受——习惯性承接他人焦虑"],sg:[{lb:"松动",c:"#3a6b52",tx:"语气从战斗变为接纳"},{lb:"加固",c:"#b8943e",tx:"「真实」成为新锚点"},{lb:"关注",c:"#a06030",tx:"7.1静默——消化还是回避？"}],qs:"如果你不需要完美、不需要成圣人、不需要在别人眼中是好的——你今天最想做的那件事是什么？"},{no:2,date:"2026.8.6",src:["深度关系","其他思考"],th:"解构禁止，信任生发",in:"第1期是看见枷锁，第2期是在枷锁松动后试探行动。从「漏洞百出也要投入真实」，到「事情可以在不对的时候开始」，最终落在「由衷信任自己的自发性」——能量从自我批判转向允许生命力自然流动。",tl:[{d:"7.1",t:"投入真实",ds:"「哪怕漏洞百出」——完美主义裂开第一道缝。"},{d:"7.11",t:"解构禁止性超我",ds:"绝对禁止毁灭创造；事情可以在不对的时候开始。"},{d:"7.23",t:"抵达自发性",ds:"由衷信任自己——生命力人性化后自然生发。"}],kn:["「做正确的人」vs「先开始」——想正确便原地不动","禁止性超我的两种极端：被框住 / 绝对抗争","自发性悖论：冲动强烈却在细节前恐惧","生命力与攻击欲——人性化而非消灭"],sg:[{lb:"转向",c:"#3a6b52",tx:"从拆解自恋转向建构信任，能量由内耗转为向外生发"},{lb:"松绑",c:"#b8943e",tx:"「不对的时候也可以开始」——许可自己不完美地行动"},{lb:"确立",c:"#8b3a2e",tx:"「由衷信任自发性」成为新的主体性锚点"}],qs:"当不再需要先正确、不再惧怕生命力会伤害谁——此刻有什么正想通过你自然生发？"}],recs:[{t:"自我认知",b:[{n:"被讨厌的勇气",a:"岸见一郎",r:"「课题分离」与「你是你我是我」高度契合",tag:"心理学",p:95,c:"linear-gradient(145deg,#2d4a3a,#162920)"},{n:"自卑与超越",a:"阿德勒",r:"完美主义、自我攻击、不行动的根源",tag:"心理学",p:88,c:"linear-gradient(145deg,#4a3d2a,#2a2218)"},{n:"爱的艺术",a:"弗洛姆",r:"爱是给予非索取，和「臣服相遇」相通",tag:"心理学",p:85,c:"linear-gradient(145deg,#1a2e38,#0d1e25)"},{n:"自体的重建",a:"科胡特",r:"全能自恋概念的源头",tag:"精神分析",p:72,c:"linear-gradient(145deg,#3a2a2a,#1f1515)"}]},{t:"关系与心性",b:[{n:"非暴力沟通",a:"卢森堡",r:"从预设反应转向表达真实",tag:"沟通",p:90,c:"linear-gradient(145deg,#3a4a2d,#1f2a18)"},{n:"传习录",a:"王阳明",r:"你三次提到「天理即人欲」，该读原典了",tag:"哲学",p:92,c:"linear-gradient(145deg,#5a4520,#3a2a10)"},{n:"活出意义来",a:"弗兰克尔",r:"人可选择对境遇的态度",tag:"存在主义",p:88,c:"linear-gradient(145deg,#1a1a28,#0d0d18)"},{n:"禅与摩托车维修艺术",a:"波西格",r:"与事物本身相遇的公路旅行",tag:"哲学小说",p:82,c:"linear-gradient(145deg,#2a2a3a,#151520)"}]}],res:[{n:"Z-Library",u:"https://z-lib.li/zh",d:"全球最大电子图书馆",t:"推荐"},{n:"Z-Lib镜像",u:"https://1lib.sk",d:"主站不可用时",t:"镜像"},{n:"Z-Lib备用",u:"https://z-lib.gs",d:"另一个入口",t:"备用"},{n:"古登堡计划",u:"https://www.gutenberg.org",d:"公版英文经典",t:"公版"},{n:"Calibre",u:"https://calibre-ebook.com",d:"电子书管理转换",t:"工具"},{n:"Neat Reader",u:"https://www.neat-reader.cn",d:"跨平台EPUB",t:"工具"}],banners:[{cr:"此刻在读",t:"拆解<span>全能自恋</span><br/>走向真实相遇",d:"从《深度关系》到《原则》，一场关于自我认知的对话。",bk:{t:"深度关系",a:"武志红",c:"linear-gradient(145deg,#2d4a3a,#0f1a15)"}},{cr:"心境推演",t:"多模块·<span>综合推演</span>",d:"融合深度关系、原则、乌合之众等多本书与随笔，推演心境变化。",bk:{t:"心境轨迹",a:"多模块综合",c:"linear-gradient(145deg,#3d2e1a,#1a1208)"}},{cr:"书架推荐",t:"下一本<br/><span>读什么？</span>",d:"基于思考轨迹，8本书籍等待相遇。",bk:{t:"被讨厌的勇气",a:"岸见一郎",c:"linear-gradient(145deg,#2d4a3a,#162920)"}}]};
+const PGS=[{id:"home",lb:"首页"},{id:"books",lb:"书架"},{id:"mood",lb:"心境"},{id:"rec",lb:"书单"},{id:"res",lb:"资源"},{id:"set",lb:"说明"}];let cur="home",bI=0,curBk="",hist=["home"],hi=0;
+function go(p){cur=p;hist=hist.slice(0,hi+1);hist.push(p);hi=hist.length-1;render()}
+function back(){if(hi>0){hi--;cur=hist[hi];render()}}
+function nav(){document.getElementById("nav").innerHTML='<button class="nav-back'+(hi>0?' on':'')+'" data-back="1" title="返回">←</button>'+PGS.map(p=>'<button class="nav-link '+(cur===p.id?'on':'')+'" data-p="'+p.id+'">'+p.lb+'</button>').join('')}
+function render(){nav();document.getElementById("main").innerHTML=(P[cur]||P.home)();renderBanner();window.scrollTo(0,0)}
+document.addEventListener("click",e=>{const bk=e.target.closest("[data-back]");if(bk){back();return}const n=e.target.closest(".nav-link");if(n&&n.dataset.p){go(n.dataset.p);return}const bc=e.target.closest(".bcard");if(bc&&bc.dataset.b){cur="bk";curBk=bc.dataset.b;hist=hist.slice(0,hi+1);hist.push("bk");hi=hist.length-1;nav();document.getElementById("main").innerHTML=P.bk();window.scrollTo(0,0);renderBanner();return}const fd=e.target.closest(".cd[data-feed]");if(fd){const fb=fd.dataset.feed,fd2=fd.dataset.day;if(fb==="mood"){go("mood");return}cur="bk";curBk=fb;hist=hist.slice(0,hi+1);hist.push("bk");hi=hist.length-1;nav();document.getElementById("main").innerHTML=P.bk();window.scrollTo(0,0);renderBanner();const el=document.querySelector('.nday h3:nth-of-type(1)');const days=[...document.querySelectorAll('.nday')];const hit=days.find(x=>x.querySelector('h3')&&x.querySelector('h3').textContent.includes(fd2));if(hit){hit.scrollIntoView({behavior:'smooth',block:'center'});hit.style.outline='2px solid var(--brass)';setTimeout(()=>hit.style.outline='none',2500)}return}const bd=e.target.closest(".bdt");if(bd){bI=+bd.dataset.i;showSlide();clearInterval(window._bi);window._bi=setInterval(()=>{bI=(bI+1)%D.banners.length;showSlide()},5500)}const mr=e.target.closest(".more");if(mr&&mr.dataset.p){go(mr.dataset.p)}});
+function renderBanner(){document.getElementById("hero").innerHTML='<div class="banner-wrap"><div class="banner-track" id="bt">'+D.banners.map(b=>'<div class="slide"><div class="slide-text"><div class="slide-crumb">'+b.cr+'</div><div class="slide-title">'+b.t+'</div><div class="slide-desc">'+b.d+'</div></div><div class="slide-book"><div class="book-3d" style="background:'+b.bk.c+'"><div class="book-f"><div class="bt">'+b.bk.t+'</div><div class="bdl"></div><div class="ba">'+b.bk.a+'</div></div></div></div></div>').join('')+'</div><div class="banner-dots">'+D.banners.map((_,i)=>'<div class="bdt '+(i===0?'on':'')+'" data-i="'+i+'"></div>').join('')+'</div></div>';bI=0;showSlide();clearInterval(window._bi);window._bi=setInterval(()=>{bI=(bI+1)%D.banners.length;showSlide()},5500)}
+function showSlide(){document.getElementById("bt").style.transform='translateX(-'+bI*100+'%)';document.querySelectorAll(".bdt").forEach((d,i)=>d.classList.toggle("on",i===bI))}
+function feeds(){const a=[];Object.entries(D.books).forEach(([n,b])=>{b.en.forEach(e=>{const day=e.d.replace(/[^0-9.]/g,"");e.s.forEach(s=>{a.push({tp:n==="其他思考"?"其他思考":"读书笔记",bk:n,d:day,t:s.t,c:s.c.slice(0,42),full:e.d})})})});D.moods.forEach(m=>{a.push({tp:"心境推演",bk:"mood",d:m.date.replace(/[^0-9.]/g,""),t:"第"+m.no+"期·"+m.th,c:m.in.slice(0,42)})});return a.sort((x,y)=>{const nx=x.d.split('.').map(z=>z.padStart(2,'0')).join(''),ny=y.d.split('.').map(z=>z.padStart(2,'0')).join('');return ny.localeCompare(nx)})}const secN=Object.values(D.books).reduce((a,b)=>a+b.en.reduce((c,d)=>c+d.s.length,0),0),bkN=Object.keys(D.books).length;
+function bCov(b,n){return '<div class="bcov" style="background:'+b.cov+'"><div class="fracture"></div><div class="bcov-in"><div class="btl">'+n+'</div><div class="bme">'+b.au.toUpperCase()+'</div><div class="bpg"><div class="bp" style="width:'+b.pr+'%"></div></div></div></div>'}
+const P={};
+P.home=()=>'<div class="page on"><div class="stats">'+[{n:bkN,l:"在读书籍"},{n:secN,l:"笔记条目"},{n:3,l:"读后感言"},{n:D.moods.length,l:"心境推演"}].map(s=>'<div class="st-i"><div class="st-n">'+s.n+'</div><div class="st-l">'+s.l+'</div></div>').join('')+'</div><div class="sec-h">最近动态<span class="more" data-p="mood">全部→</span></div><div class="cards">'+feeds().slice(0,6).map(f=>'<div class="cd '+(f.tp==="心境推演"?'cd-mo':f.tp==="其他思考"?'cd-ch':'')+'" data-feed="'+f.bk+'" data-day="'+f.d+'"><div class="cd-top"><span class="tag '+(f.tp==="心境推演"?'t-m':f.tp==="其他思考"?'t-g':'t-b')+'">'+f.tp+'</span>'+f.d+'</div><div class="cd-ti">'+f.t+'</div><p>'+f.c+'</p></div>').join('')+'</div><div class="sec-h">在读<span class="more" data-p="books">书架→</span></div><div class="bgrid">'+Object.entries(D.books).map(([n,b])=>'<div class="bcard" data-b="'+n+'">'+bCov(b,n)+'<div class="bnm">'+n+'</div><div class="bin">'+b.au+'·'+b.st+' '+b.pr+'%</div><div class="bsm">'+b.gs.slice(0,26)+'…</div></div>').join('')+'</div></div>';
+P.books=()=>{const types=[...new Set(Object.values(D.books).map(b=>b.ty))];let h='<div class="page on"><div class="tip">📖 日常笔记在<code>读书笔记.xlsx</code>，每日9:00自动读取</div>';types.forEach(tp=>{h+='<div class="sec-h">'+tp+'</div><div class="bgrid">';Object.entries(D.books).filter(([n,b])=>b.ty===tp).forEach(([n,b])=>{h+='<div class="bcard" data-b="'+n+'">'+bCov(b,n)+'<div class="bnm">'+n+'</div><div class="bin">'+b.au+'·'+b.st+' '+b.pr+'%</div><div class="bsm">'+b.gs.slice(0,26)+'…</div></div>'});h+='</div>'});return h+'</div>'};
+P.bk=()=>{const b=D.books[curBk];if(!b)return P.home();return '<div class="page on"><div style="display:flex;gap:32px;margin-bottom:36px;align-items:flex-start"><div style="width:160px;flex-shrink:0"><div class="bcov" style="background:'+b.cov+';aspect-ratio:3/4.3;box-shadow:8px 10px 30px rgba(0,0,0,.2)"><div class="fracture"></div><div class="bcov-in"><div class="btl" style="font-size:14px">'+curBk+'</div><div class="bme">'+b.au.toUpperCase()+'</div><div class="bpg"><div class="bp" style="width:'+b.pr+'%"></div></div></div></div></div><div style="flex:1;padding-top:6px"><h2 style="font-size:26px;font-weight:800;font-family:Georgia,serif;margin-bottom:6px">《'+curBk+'》</h2><p style="font-size:13px;color:var(--tx3);margin:0">'+b.au+'·'+b.ty+'·'+b.st+' '+b.pr+'%</p><div class="gq" style="margin-top:20px;padding:18px 22px;background:var(--paper2);border-left:2px solid var(--brass)"><div style="font-size:10px;letter-spacing:3px;color:var(--brass);font-weight:600;margin-bottom:8px">这本书的感悟</div><p style="font-size:14px;line-height:1.9;color:var(--tx2);margin:0;font-weight:300">'+b.gs+'</p></div></div></div>'+b.en.map(e=>'<div class="nday"><h3>'+e.d+'</h3>'+e.s.map(s=>'<div class="nsec"><div class="ntl">'+s.t+'</div><div class="nbd">'+s.c+'</div></div>').join('')+'</div>').join('')+'</div>'};
+P.mood=()=>{const ms=[...D.moods].reverse();return '<div class="page on">'+ms.map((m,mi)=>'<div class="cd cd-mo" style="margin-bottom:24px'+(mi>0?';margin-top:56px':'')+'"><div class="cd-top"><span class="tag t-m">第'+m.no+'期·'+(m.no===1?'初始基线':'变化推演')+'</span>'+m.date+'</div><div class="cd-ti">本期主题：'+m.th+'</div><p>'+m.in+'</p></div><div class="sec-h">来源模块</div><div class="cards">'+m.src.map(s=>'<div class="cd cd-ch"><p style="margin:0"><b style="color:var(--moss)">'+s+'</b></p></div>').join('')+'</div><div class="sec-h">心境轨迹</div><div class="tl">'+m.tl.map(t=>'<div class="ti"><div class="td">'+t.d+'</div><div class="tt">'+t.t+'</div><div class="tds">'+t.ds+'</div></div>').join('')+'</div><div class="sec-h">反复出现的结</div><div class="cards">'+m.kn.map(k=>'<div class="cd"><p style="margin:0">'+k+'</p></div>').join('')+'</div><div class="sec-h">变化信号</div><div class="cards">'+m.sg.map(s=>'<div class="cd"><p style="margin:0"><b style="color:'+s.c+'">'+s.lb+'：</b>'+s.tx+'</p></div>').join('')+'</div><div class="mq"><div class="ql">给你的一个问题</div><div class="qt">'+m.qs+'</div></div>').join('')+'<p style="text-align:center;color:var(--tx3);font-size:12px">下次更新将默认生成新一期·当前共'+D.moods.length+'期</p></div>'};
+P.rec=()=>{let h='<div class="page on"><div class="tip">🎯 基于最近思考轨迹推荐，每日9:00更新</div>';D.recs.forEach(g=>{h+='<div class="sec-h">'+g.t+'</div><div class="rgrid">';g.b.forEach(b=>{h+='<div class="rcd"><div class="rcov" style="background:'+b.c+'">'+b.n.charAt(0)+'</div><div class="rbd"><div class="rtp"><div class="rnm">《'+b.n+'》</div><div class="rmat">'+b.p+'%</div></div><div class="rau">'+b.a+'·'+b.tag+'</div><div class="rrs">'+b.r+'</div></div></div>'});h+='</div>'});return h+'<div class="sec-h">推荐逻辑</div><div class="cd"><ul><li>从笔记提取关键词匹配，非随机</li><li>匹配度按主题频率和情感强度计算</li><li>「资源」页可搜索下载</li></ul></div></div>'};
+P.res=()=>'<div class="page on"><div class="sec-h">电子书下载</div><div class="rgr">'+D.res.filter(r=>r.t!=="工具").map(r=>'<a class="rcard" href="'+r.u+'" target="_blank" rel="noopener"><div class="rtp2">'+r.t+'</div><div class="rnm2">'+r.n+'</div><div class="rds">'+r.d+'</div></a>').join('')+'</div><div class="sec-h">阅读工具</div><div class="rgr">'+D.res.filter(r=>r.t==="工具").map(r=>'<a class="rcard" href="'+r.u+'" target="_blank" rel="noopener"><div class="rtp2">'+r.t+'</div><div class="rnm2">'+r.n+'</div><div class="rds">'+r.d+'</div></a>').join('')+'</div><div class="sec-h">格式说明</div><div class="cd"><ul><li><b>EPUB</b>：最通用流式格式，优先下载</li><li><b>MOBI/AZW3</b>：Kindle专用</li><li><b>PDF</b>：固定排版，适合扫描版</li></ul></div></div>';
+P.set=()=>'<div class="page on"><div class="tip">⏰ 每天9:00自动读取<code>读书笔记.xlsx</code>归纳新内容，其余时间不变</div><div class="sec-h">笔记记录</div><div class="cd"><ul><li><b>日常笔记</b>：在<code>读书笔记.xlsx</code>按日期记录</li><li><b>书籍感想</b>：对我说「写篇感想」</li><li>每日9点自动读取xlsx更新工作台</li></ul></div><div class="sec-h">可用指令</div><div class="cd"><ul><li>「推演心境」→新一期推演</li><li>「总结这周/月」→阶段总结</li><li>「新开一本书《XXX》」→添加新书</li><li>「更新工作台」→立即扫描</li><li>「推荐书单」→刷新推荐</li></ul></div><div class="sec-h">心境推演包含</div><div class="cd"><ol><li>本期主题</li><li>心境轨迹</li><li>反复出现的结</li><li>变化信号</li><li>给你的一个问题</li></ol></div></div>';
+render();
+</script>
+<script>
+(function(){var k="010811";var lock=document.getElementById("pwdlock");var inp=document.getElementById("pwdin");var btn=document.getElementById("pwdbtn");var err=document.getElementById("pwderr");
+function tryIn(){if(inp.value===k){lock.style.display="none"}else{err.style.display="block";inp.value=""}}
+btn.addEventListener("click",tryIn);inp.addEventListener("keydown",function(e){if(e.key==="Enter")tryIn()});inp.focus()})();
+</script></body>
+</html>
