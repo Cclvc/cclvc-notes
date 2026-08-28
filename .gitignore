@@ -1,0 +1,9 @@
+﻿_*
+*.bak*
+*.ps1
+*.py
+test*.txt
+.github-config
+fix_admin.py
+daily-*.ps1
+读书笔记.xlsx
